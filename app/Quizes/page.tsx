@@ -123,8 +123,8 @@ const Quiz: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen pt-2 sm:pt-0 pl-3 sm:pl-24 pr-3 sm:pr-24">
-      <main className="flex-grow bg-zinc-900 text-white p-4 md:p-9 flex flex-col justify-center items-center text-sm md:text-xl gap-3 rounded-3xl shadow-xl shadow-slate-500">
-        <h1 className="font-mono font-bold text-2xl md:text-4xl">
+      <main className="flex-grow bg-zinc-900 text-white p-4 md:p-9 flex flex-col justify-center items-center md:text-xl gap-3 rounded-3xl shadow-lg shadow-slate-600">
+        <h1 className="font-sans font-light text-3xl md:text-[250%] p-2">
           Banking Maths Quiz Sets:{" "}
         </h1>
         <h2 className="font-bold flex items-center">
@@ -140,23 +140,23 @@ const Quiz: React.FC = () => {
                 .padStart(2, "0")}`
             : ""}
         </h2>
-        <h3 className="font-light text-sm md:text-xl">
+        <h3 className="p-2 font-bold text-2xl md:text-2xl">
           Question Set {currentSet + 1}
         </h3>
         {questions.slice(currentSet * 5, currentSet * 5 + 5).map((q, index) => (
-          <div key={index} className="w-full max-w-xs">
-            <p className="font-mono text-xs md:text-sm p-1">{q.question}</p>
+          <div key={index} className="w-full max-w-lg p-2">
+            <p className="font-mono text-xl md:text-xl p-2">{q.question}</p>
             <input
-              className="text-black bg-slate-400 rounded-xl w-full p-2"
+              className="text-black bg-zinc-400 rounded-lg w-full p-3 focus:shadow-lg focus:shadow-slate-300"
               type="text"
               value={userAnswers[currentSet * 5 + index]}
               onChange={(e) => handleInputChange(index, e.target.value)}
             />
           </div>
         ))}
-        <div className="flex flex-col md:flex-row gap-2 md:gap-3 mb-5">
+        <div className="flex flex-row md:flex-row gap-36 md:gap-72 mb-5 pt-2">
           <button
-            className="border-2 border-white p-2 md:p-3 text-xs md:text-sm rounded-xl hover:opacity-40"
+            className="border-2 border-white p-3 md:p-3 text-xs md:text-sm rounded-xl hover:opacity-40"
             onClick={handlePreviousSet}
             disabled={currentSet === 0}
           >
